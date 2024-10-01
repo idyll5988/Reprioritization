@@ -1,16 +1,6 @@
 #!/system/bin/sh
-[ ! "$MODDIR" ] && MODDIR=${0%/*}
-MODPATH="/data/adb/modules/AA+™"
-[[ ! -e ${MODDIR}/ll/log ]] && mkdir -p ${MODDIR}/ll/log
 date="$( date "+%Y年%m月%d日%H时%M分%S秒")"
 #获取屏幕正在运行的应用匹配进程，提取出第一个进程ID，通过调整其进程的优先级、IO优先级以及CPU核心绑定，提高其在系统中的运行性能、关屏不运行
-function log() {
-    logfile="1000000"
-    maxsize="1000000"
-    if [ "$(stat -c %s "${MODDIR}/ll/log/进程.log")" -eq "$maxsize" ] || [ "$(stat -c %s "${MODDIR}/ll/log/进程.log")" -gt "$maxsize" ]; then
-        rm -f "${MODDIR}/ll/log/进程.log"
-    fi
-}
 while true; do
 cd ${MODDIR}/ll/log
 log
