@@ -6,7 +6,7 @@ cd ${MODDIR}/ll/log
 log
 screen_status=$(dumpsys window | grep "mScreenOn" | grep true)
 if [[ "${screen_status}" ]]; then
-    echo "$date *📲亮屏运行*" >>进程.log
+    echo "$date *📲亮屏运行*"
     namaapk=$(dumpsys activity recents | grep 'Recent #0:' | awk -F= '{print $2}' | awk '{print $1}')
     p=$(pgrep -f "$namaapk" | head -n 1)
 	echo "$date *🔨- 已获取进程$namaapk并调整renice、ionice、taskset和chrt优先级*" 
