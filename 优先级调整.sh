@@ -3,7 +3,7 @@
 MODPATH="/data/adb/modules/AA+™"
 [[ ! -e ${MODDIR}/ll/log ]] && mkdir -p ${MODDIR}/ll/log
 date="$( date "+%Y年%m月%d日%H时%M分%S秒")"
-#优化运行的应用匹配进程，提取出第一个进程ID，通过调整其进程的优先级、IO优先级以及CPU核心绑定，提高其在系统中的运行性能、关屏不运行
+#获取屏幕正在运行的应用匹配进程，提取出第一个进程ID，通过调整其进程的优先级、IO优先级以及CPU核心绑定，提高其在系统中的运行性能、关屏不运行
 function log() {
     logfile="1000000"
     maxsize="1000000"
