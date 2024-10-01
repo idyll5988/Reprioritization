@@ -17,7 +17,7 @@ taskset -ap 00ff $p
 chrt -f -p 1 $p 
 chrt -fp 1 $p 
 else
-echo "$date *📵暗屏状态，跳过优化*" >>进程.log
+echo "$date *📵暗屏状态，跳过优化*"
 fi
 sleep 60
 done
