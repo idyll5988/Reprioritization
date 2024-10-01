@@ -8,15 +8,10 @@ echo "$date *📲- 亮屏运行*"
 namaapk=$(dumpsys activity recents | grep 'Recent #0:' | awk -F= '{print $2}' | awk '{print $1}')
 p=$(pgrep -f $namaapk | head -n 1)
 echo "$date *🔨- 已获取进程$namaapk并调整renice、ionice、taskset和chrt优先级*" 
-renice -n -20 -p $p
-ionice -c 1 -n 0 -p $p 
-taskset -c 0,1,2,3,4,5,6,7 -p $p
-taskset -c 0-7 -p $p
-taskset -c 0-7 $p
-taskset -cp 0-7 $p
-taskset -ap 00ff $p
-chrt -f -p 1 $p 
-chrt -fp 1 $p 
+renice -n -20 -p "$p"
+ionice -c 1 -n 0 -p "$p"
+taskset -c 0-7 -p "$p"
+chrt -f -p 1 "$p"
 else
 echo "$date *📵- 暗屏状态，跳过优化*"
 fi
