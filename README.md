@@ -1,5 +1,5 @@
 # Reprioritization
 
-通过获取系统最近使用的应用进程并对该应用CPU频率、进程优先级、I/O优先级及CPU核心调整优先提高其性能、关屏不运行
+优化最近使用的应用程序的性能，通过调整其进程的优先级、IO优先级以及CPU核心绑定，提高其在系统中的运行表现、关屏不运行
 
-By obtaining the most recently used application process on the system and adjusting the CPU frequency, process priority, I/O priority and CPU core of the application to prioritize the improvement of its performance, turn off the screen and do not run.
+Optimize the performance of recently used applications by adjusting their process priority, IO priority, and CPU core bindings to improve their performance in the system, turn off the screen and not running
