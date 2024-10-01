@@ -19,7 +19,7 @@ if [[ "${screen_status}" ]]; then
     echo "$date *📲亮屏运行*" >>进程.log
     namaapk=$(dumpsys activity recents | grep 'Recent #0:' | awk -F= '{print $2}' | awk '{print $1}')
     p=$(pgrep -f "$namaapk" | head -n 1)
-	echo "$date *🔨- 已获取进程$namaapk并调整renice、ionice、taskset和chrt优先级*" >>进程.log
+	echo "$date *🔨- 已获取进程$namaapk并调整renice、ionice、taskset和chrt优先级*" 
     renice -n -20 -p $p
     ionice -c 1 -n 0 -p $p 
     taskset -c 0,1,2,3,4,5,6,7 -p $p
