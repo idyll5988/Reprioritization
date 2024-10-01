@@ -4,6 +4,7 @@ date="$( date "+%Y年%m月%d日%H时%M分%S秒")"
 while true; do
 screen_status=$(dumpsys window | grep "mScreenOn" | grep true)
 if [[ "${screen_status}" ]]; then
+echo "$date *📲- 亮屏运行*"
 namaapk=$(dumpsys activity recents | grep 'Recent #0:' | awk -F= '{print $2}' | awk '{print $1}')
 p=$(pgrep -f $namaapk | head -n 1)
 echo "$date *🔨- 已获取进程$namaapk并调整renice、ionice、taskset和chrt优先级*" 
@@ -17,7 +18,7 @@ taskset -ap 00ff $p
 chrt -f -p 1 $p 
 chrt -fp 1 $p 
 else
-echo "$date *📵暗屏状态，跳过优化*"
+echo "$date *📵- 暗屏状态，跳过优化*"
 fi
 sleep 60
 done
